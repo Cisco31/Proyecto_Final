@@ -26,7 +26,6 @@
                     <th>Imagen</th>
                     <th scope="col">Nombre de usuario</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Password</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -35,13 +34,12 @@
                     <tr>
                         <th scope="row">{{$usuario->id}}</th>
                         <th>
-                            <img style="width: 50px;height:50px;"
+                            <img style="border-radius:120px; width: 50px;height:50px;"
                                 src="{{ Storage::disk('public')->url($usuario->foto != null ? $usuario->foto : 'images/usuarios/default.png') }}"
                                 alt="">
                         </th>
                         <td>{{$usuario->nombre_usuario}}</td>
                         <td>{{$usuario->email}}</td>
-                        <td>{{$usuario->password}}</td>
                         <td>
                             <a href="{{ route('usuarios.read', $usuario) }}" title="Mostrar más" type="button" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                             <a href="{{ route('usuarios.edit', $usuario) }}" title="Editar usuario" type="button" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> </a>

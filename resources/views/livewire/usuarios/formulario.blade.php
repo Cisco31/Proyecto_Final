@@ -9,7 +9,7 @@
         @if ($foto != null)
             <img style="width: 230px;height:230px;" src="{{ $foto->temporaryUrl() }}" alt="">
         @else
-            <img style="width: 230px;height:230px;"
+            <img style="border-radius:120px; width: 230px;height:230px;"
                 src="{{ Storage::disk('public')->url($usuario->foto != null ? $usuario->foto : 'images/usuarios/default.png') }}"
                 alt="">
         @endif
@@ -44,9 +44,17 @@
             </div>
             <div class="form-group ">
                 <label>Password</label>
-                <input wire:model="usuario.password" type="password" class="form-control">
-                @error('usuario.password')
+                <input wire:model="password" type="password" class="form-control">
+                @error('password')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
+            </div>
+            <div class="form-group ">
+                <label>Confirmar Password</label>
+                <input wire:model="confirmar_password" type="password" class="form-control">
+                @error('confirmar_password')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
     </div>
 </div>
